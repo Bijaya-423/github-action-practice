@@ -11,7 +11,7 @@ on:
 
 
 jobs:
-  code:
+  code-linting:
     runs-on: ubuntu-latest
     # this step will automatically clone the code of the current branch into the runner
     steps:
@@ -24,6 +24,11 @@ jobs:
       # this step will install the linting toool
       - name: Install Linter
         run: pip install ruff
+
+      # this steps will run the linter
+      - name: Check the files for linting
+        run: ruff check .
+        
         
 
 
