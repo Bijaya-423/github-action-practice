@@ -1,1 +1,26 @@
+# What is the goal of your workflow
+# Goal: Whenever someone chnages the python code, 
+# the liner will check if the sysntax, format, indentation (linting) is correct or not
 
+
+name: Auto Linter
+
+on: 
+  push:
+    paths: "*.py"
+
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    # this step will automatically clone the code of the current branch into the runner
+    steps:
+      - name: Checkout/clone the code
+        # run: instead of the run you have => uses: 
+        # to clone the code to ubuntu-latest vm ephemal container
+        # run: git clone url but not using this
+        uses: actions/checkout@v7
+        
+
+
+        
