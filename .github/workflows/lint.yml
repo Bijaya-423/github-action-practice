@@ -21,6 +21,12 @@ jobs:
       - name: Checkout/clone the code
         uses: actions/checkout@v7
 
+      #this step will install python
+      - name: Install Python & setuo
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14' # Specify your desired version here
+
       # this step will install the linting toool
       - name: Install Linter
         run: pip install ruff
