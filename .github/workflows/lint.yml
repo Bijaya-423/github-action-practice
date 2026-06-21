@@ -15,11 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     # this step will automatically clone the code of the current branch into the runner
     steps:
-      - name: Checkout/clone the code
         # run: instead of the run you have => uses: 
         # to clone the code to ubuntu-latest vm ephemal container
         # run: git clone url but not using this
+      - name: Checkout/clone the code
         uses: actions/checkout@v7
+
+      # this step will install the linting toool
+      - name: Install Linter
+        run: pip install ruff
         
 
 
