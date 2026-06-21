@@ -1,1 +1,31 @@
+name: Test Github Action
 
+on: workflow_dispatch
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the code
+        run: echo "Cloning the code"
+        
+  build:
+    needs: code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build using Docker
+        run: echo "Building using Docker"
+        
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running test cases
+        run: echo "Testing the App"
+        
+  deploy:
+    needs: [test,build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying on the machine
+        run: echo "Deploying the Code"
