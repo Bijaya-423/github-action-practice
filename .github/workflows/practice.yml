@@ -1,1 +1,30 @@
+name: Practice
 
+on: 
+  workflow_dispatch:
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CLone the Code
+        run: echo "Cloning the Code"
+  build:
+    needs: [code]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build on Docker
+        run: echo "Build on Docker."
+  test:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running the test case
+        run: echo "Test the App"
+        
+  deploy:
+    needs: [build,test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying on the Machine
+        run: echo "Deploying the code"
