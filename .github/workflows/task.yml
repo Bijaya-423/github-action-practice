@@ -48,3 +48,6 @@ jobs:
 
       - name: Print operating system
         run: 'echo "Operating System: $RUNNER_OS"'
+
+      - name: Intentionally fail
+        run: exit 1
