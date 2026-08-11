@@ -1,9 +1,26 @@
-name: Hello Workflows
+# name: Hello Workflows
 
 
-on: 
+# on: 
+#   push:
+
+
+# jobs:
+#   greet:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+
+#       - name: Print greeting
+#         run: echo "Hello from Github Actions!"
+
+
+name: Hello Workflow
+
+on:
   push:
-
 
 jobs:
   greet:
@@ -14,4 +31,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Print greeting
-        run: echo "Hello from Github Actions!"
+        run: echo "Hello from GitHub Actions!"
+
+      - name: Print current date and time
+        run: date
+
+      - name: Print branch name
+        run: echo "Branch: ${{ github.ref_name }}"
+
+      - name: List repository files
+        run: ls -la
+
+      - name: Print operating system
+        run: echo "Operating System: $RUNNER_OS"
